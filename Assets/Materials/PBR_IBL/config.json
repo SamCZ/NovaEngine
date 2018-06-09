@@ -1,0 +1,152 @@
+﻿[
+	{
+		"Name": "Unshaded",
+		"TechniqueName": "Default",
+		"UniformBlocks": [
+			{
+				"BlockName": "Global",
+				"UniformSubBlocks": [
+					{
+						"SubBlockName": "Instancing",
+						"DefineConnection": "USE_INSTANCING",
+						"Uniforms": []
+					},
+					{
+						"SubBlockName": "Textures",
+						"DefineConnection": "",
+						"Uniforms": [
+							{"Type": "Vector2", "Name": "Scale", "ShaderName": "TexScale"},
+							{"Type": "Bool", "Name": "Flip Y (For tiff images)", "ShaderName": "FlipYCoord"}
+						]
+					},
+					{
+						"SubBlockName": "Texture Triplanar mode",
+						"DefineConnection": "USE_TRIPLANAR",
+						"Uniforms": [
+							{"Type": "Float", "Name": "Size", "ShaderName": "TriplanarScale"},
+							{"Type": "Bool", "Name": "World coords", "ShaderName": "TriplanarWorld"}
+						]
+					}
+				]
+			},
+			{
+				"BlockName": "BaseColor",
+				"UniformSubBlocks": [
+					{
+						"SubBlockName": "Texture mode",
+						"DefineConnection": "USE_ALBEDO_TEXTURE",
+						"Uniforms": [
+							{"Type": "Texture", "Name": "Albedo", "ShaderName": "albedoMap"}
+						]
+					},
+					{
+						"SubBlockName": "Color",
+						"DefineConnection": "",
+						"Uniforms": [
+							{"Type": "Vector4", "Name": "Color", "ShaderName": "albedoColor"}
+						]
+					}
+				]
+			},
+			{
+				"BlockName": "Normal",
+				"UniformSubBlocks": [
+					{
+						"SubBlockName": "Texture mode",
+						"DefineConnection": "USE_NORMAL_TEXTURE",
+						"Uniforms": [
+							{"Type": "Texture", "Name": "Normal", "ShaderName": "normalMap"},
+							{"Type": "Bool", "Name": "Invert", "ShaderName": "invertNormalMap"},
+							{"Type": "Bool", "Name": "InvertY", "ShaderName": "invertNormalMapY"}
+						]
+					},
+					{
+						"SubBlockName": "Value",
+						"DefineConnection": "USE_NORMAL_PARAM",
+						"Uniforms": [
+							{"Type": "Vector3", "Name": "Normal", "ShaderName": "normalVar"},
+							{"Type": "Bool", "Name": "World orientation", "ShaderName": "normalVarWorld"}
+						]
+					}
+				]
+			},
+			{
+				"BlockName": "Metallic",
+				"UniformSubBlocks": [
+					{
+						"SubBlockName": "Texture mode",
+						"DefineConnection": "USE_METALIC_TEXTURE",
+						"Uniforms": [
+							{"Type": "Texture", "Name": "Metallic texture", "ShaderName": "metallicMap"}
+						]
+					},
+					{
+						"SubBlockName": "Value",
+						"DefineConnection": "",
+						"Uniforms": [
+							{"Type": "Float", "Name": "Metallic amount", "ShaderName": "metalicValue"}
+						]
+					}
+				]
+			},
+			{
+				"BlockName": "Roughness",
+				"UniformSubBlocks": [
+					{
+						"SubBlockName": "Texture mode",
+						"DefineConnection": "USE_ROUGHNESS_TEXTURE",
+						"Uniforms": [
+							{"Type": "Texture", "Name": "Roughness texture", "ShaderName": "roughnessMap"}
+						]
+					},
+					{
+						"SubBlockName": "Value",
+						"DefineConnection": "",
+						"Uniforms": [
+							{"Type": "Float", "Name": "Roughness amount", "ShaderName": "roughnessValue"}
+						]
+					},
+					{
+						"SubBlockName": "Subtract mode",
+						"DefineConnection": "USE_ROUGHNESS_SUBVAL",
+						"Uniforms": [
+							{"Type": "Float", "Name": "Roughness subtract", "ShaderName": "roughnessSub"}
+						]
+					}
+				]
+			},
+			{
+				"BlockName": "Ambient oclussion",
+				"UniformSubBlocks": [
+					{
+						"SubBlockName": "Texture mode",
+						"DefineConnection": "USE_AO_TEXTURE",
+						"Uniforms": [
+							{"Type": "Texture", "Name": "Ambient oclussion texture", "ShaderName": "aoMap"}
+						]
+					},
+					{
+						"SubBlockName": "Value",
+						"DefineConnection": "",
+						"Uniforms": [
+							{"Type": "Float", "Name": "Ambient oclussion amount", "ShaderName": "aoValue"}
+						]
+					}
+				]
+			},
+			{
+				"BlockName": "Height map",
+				"UniformSubBlocks": [
+					{
+						"SubBlockName": "Texture mode",
+						"DefineConnection": "USE_PARALAX_MAP",
+						"Uniforms": [
+							{"Type": "Texture", "Name": "Heightmap texture", "ShaderName": "paralaxMap"},
+							{"Type": "Float", "Name": "Height scale", "ShaderName": "paralaxScale"}
+						]
+					}
+				]
+			}
+		]
+	}
+]
